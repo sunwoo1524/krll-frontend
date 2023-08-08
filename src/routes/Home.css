@@ -1,0 +1,61 @@
+.home {
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.shorten-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.url {
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px;
+    width: calc(100% - 70px);
+    max-width: 400px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    border: 1px gray solid;
+}
+
+input:focus {
+    outline: 0;
+}
+
+.shorten-btn {
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 70px;
+    height: 36px;
+    background-color: #6F59F5;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.result {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.copy-btn {
+    margin-left: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: gray;
+    color: white;
+    padding: 4px 5px;
+}
+
+.qr-code {
+    margin-top: 20px;
+}

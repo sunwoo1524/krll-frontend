@@ -1,0 +1,25 @@
+nav {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid lightgray 1px;
+}
+
+.homelink {
+    font-size: 15px;
+    display: flex;
+    align-items: flex-end;
+    color: black;
+    font-weight: bold;
+    margin-right: 60px;
+}
+
+.homelink img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.link {
+    color: black;
+    margin-right: 10px;
+}

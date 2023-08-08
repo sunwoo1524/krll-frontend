@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { config } from "../config";
 
@@ -6,6 +6,10 @@ function Home() {
     const [url, setURL] = useState("");
     const [short_url, setShortURL] = useState();
     const [qr_code, setQRCode] = useState("");
+
+    useEffect(() => {
+        setQRCode(getQRCode(short_url));
+    }, [short_url]);
 
     function onChangeURL(event) {
         setURL(event.target.value);
@@ -38,7 +42,6 @@ function Home() {
         if (response.ok) {
             const data = await response.json();
             setShortURL(config.api + "/" + data.key);
-            setQRCode(getQRCode(short_url));
         } else {
             if (response.status == 400) {
                 alert("올바른 URL을 입력하세요.");

@@ -6,6 +6,7 @@ function Home() {
     const [url, setURL] = useState("");
     const [short_url, setShortURL] = useState();
     const [qr_code, setQRCode] = useState("");
+    const [copyed, isCopyed] = useState(false);
 
     useEffect(() => {
         setQRCode(getQRCode(short_url));
@@ -53,10 +54,11 @@ function Home() {
 
     async function onClickCopyBtn() {
         window.navigator.clipboard.writeText(short_url).then(() => {
-            alert("URL이 클립보드에 복사되었습니다.");
+            isCopyed(true);
+            setTimeout(() => isCopyed(false), 3000);
         },
         () => {
-            alert("클립보드 복사에 실패하였습니다. 브라우저가 클립보드 API를 지원하지 않는 것 같습니다.");
+            alert("클립보드 복사에 실패하였습니다. 브라우저가 클립보드 API를 지원하지 않는 것 같습니다.\n최신 브라우저를 이용해주시고 인터넷 익스플로러 사용은 자제 부탁드립니다.");
         });
     }
 
@@ -70,7 +72,7 @@ function Home() {
             </div>
 
             <div className="result" style={{ display: short_url == undefined ? "none" : "flex" }}>
-                <p className="short_url">{short_url}<button onClick={onClickCopyBtn} className="copy-btn">Copy</button></p>
+                <p className="short_url">{short_url}<button onClick={onClickCopyBtn} className="copy-btn">{copyed ? "Copyed!" : "Copy"}</button></p>
                 <img className="qr-code" src={qr_code} alt={short_url} />
             </div>
         </div>
